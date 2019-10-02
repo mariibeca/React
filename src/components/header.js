@@ -1,24 +1,9 @@
-import React,{ Component } from 'react';
-import '../css/styles.css'
-
-//onclick vanilla JS
+import React from 'react';
 
 
 
-class Header extends Component {
-
-    inputChangeHandler(event){
-        console.log(event.target.value)
-    }
-
-    render(){ 
-        return (
-            <header>
-                <div className="logo">Logo</div>
-                <input type="text" onChange={this.inputChangeHandler}/>
-            </header>
-        )
-    }
+const Header = () => {
+    return <div>This is my new Header</div>
 }
 
 export default Header;
