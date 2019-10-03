@@ -1,0 +1,20 @@
+body {
+    margin:0;
+}
+
+header {
+    background:lightblue;
+    text-align: center;
+}
+
+.logo {
+    color: white;
+    text-align: center;
+    font-family:'Anton';
+    font-size: 40px;
+}
+
+header input {
+    font-size: 20px;
+    margin: 20px 0;
+}
