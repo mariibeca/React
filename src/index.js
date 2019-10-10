@@ -1,43 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-
-import JSON from './db.json';
+import { BrowserRouter, Route} from 'react-router-dom';
 
 //COMPONENTS
-import Header from './components/header';
-import NewsList from './components/news_list';
 
-class App extends Component {
-    state ={
-        news:JSON,
-        filtered:[]
-    }
+import Home from './components/home';
+import Posts from './components/posts';
+import Profile from './components/profile';
 
-    getKeyword = (event) =>{
-        //console.log(event.target.value)
-        let keyword = event.target.value;
-        let filtered = this.state.news.filter((item) => {
-            return item.title.indexOf(keyword) > -1
-        });
-        this.setState({
-            filtered
-        })
-    }
-
-    render(){
-        let newsFiltered = this.state.filtered;
-        let newsWhole = this.state.news;
-        return (
+const App = () => { 
+    return (
+         <BrowserRouter>
             <div>
-                <Header keywords={this.getKeyword}/>
-                <NewsList news={newsFiltered.length === 0 ? newsWhole : newsFiltered} donkey="Me">
-                    <h3>
-                        The news are:
-                    </h3>        
-                </NewsList>    
+                <header>Header</header>
+                <Route path="/" exact component={Home}/>
+                <Route path="/posts" component={Posts}/>
+                <Route path="/profile" component={Profile}/>         
             </div>
-        )
-    }
+         </BrowserRouter>
+    )
 }
 
-ReactDOM.render(<App/>,document.querySelector('#root'));
+ReactDOM.render(
+    <App/>,
+    document.querySelector('#root')
+)
