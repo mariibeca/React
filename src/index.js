@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Link, NavLink, Switch  } from 'react-router-dom';
 
 //COMPONENTS
 
@@ -8,6 +8,7 @@ import Home from './components/home';
 import Posts from './components/posts';
 import Profile from './components/profile';
 import PostItem from './components/post_item';
+import CantFind from './components/cant_find';
 
 const App = () => { 
     return (
@@ -23,10 +24,13 @@ const App = () => {
                     <NavLink to="/profile">Profile</NavLink><br/>
                     <hr/>
                 </header>
-                <Route path="/" exact component={Home}/>
-                <Route path="/posts" exact component={Posts}/>
-                <Route path="/profile" component={Profile}/>
-                <Route path="/posts/:id/:username" component={PostItem}/>         
+                <Switch>                                      
+                    <Route path="/posts/:id/:username" component={PostItem}/>
+                    <Route path="/profile" component={Profile}/>                    
+                    <Route path="/posts"  component={Posts}/>
+                    <Route path="/" exact component={Home}/>
+                    <Route component={CantFind}/>
+                </Switch>                     
             </div>
          </BrowserRouter>
     )
