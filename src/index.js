@@ -10,6 +10,7 @@ import Profile from './components/profile';
 import PostItem from './components/post_item';
 import CantFind from './components/cant_find';
 import Life from './components/lifecycles';
+import Conditional from './components/conditional';
 
 const App = () => { 
     return (
@@ -24,6 +25,7 @@ const App = () => {
                     >Posts</NavLink><br/>
                     <NavLink to="/profile">Profile</NavLink><br/>
                     <NavLink to="/life">Life</NavLink><br/>
+                    <NavLink to="/conditional">Conditional</NavLink>
                     <hr/>
                 </header>
                 <Switch>                                      
@@ -31,6 +33,7 @@ const App = () => {
                     <Route path="/profile" component={Profile}/>                    
                     <Route path="/posts"  component={Posts}/>
                     <Route path="/life" component={Life}/>
+                    <Route path="/conditional" component={Conditional}/>
                     <Route path="/" exact component={Home}/>
                     <Route component={CantFind}/>
                 </Switch>                     
